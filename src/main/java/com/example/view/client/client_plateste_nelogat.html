@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xml:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Plateste</title>
+  <link rel = "stylesheet" href="style.css">
+</head>
+<body>
+<div class="form">
+  <form method="post" action="/process_payment" >
+    <h2>Plateste</h2>
+    <div class="input-box">
+      <i class="fa fa-user" aria-hidden="true"></i>
+      <input type="text"  placeholder="Numar card" name="numarCard" minlength="16" maxlength="16" pattern="^\d+$" title="Must contain only digits" required>
+    </div>
+    <div class="input-box">
+      <i class="fa fa-user" aria-hidden="true"></i>
+      <input type="text"  placeholder="Numar de telefon"  name="numarTelefon" minlength="10" maxlength="10" pattern="^\d+$" title="Must contain only digits" required>
+    </div>
+    <div class="input-box">
+      <i class="fa fa-user" aria-hidden="true"></i>
+      <input type="text"  placeholder="Nume detinator"  name="numeDetinator" minlength="8" maxlength="40" pattern="^[a-zA-Z\s]*$" title="Must contain only letters" required>
+    </div>
+    <div class="input-box">
+      <i class="fa fa-user" aria-hidden="true"></i>
+      <input type="text"  placeholder="Adresa"  name="adresa" minlength="10" maxlength="40" required>
+    </div>
+    <div class="input-box">
+      <i class="fa fa-user" aria-hidden="true"></i>
+      <input type="text"  placeholder="Cod Securitate"  name="CVV" minlength="3" maxlength="3" pattern="^\d+$" title="Must contain only digits" required>
+    </div>
+    <div class="input-box">
+      <i class="fa fa-user" aria-hidden="true"></i>
+      <input type="text"  placeholder="Data expirarii(yyyy-mm)" name="dataExpirare" minlength="7" maxlength="7" pattern="([12]\d{3}-(0[1-9]|1[0-2]))" title="Formatul este (yyyy-mm)" required>
+    </div>
+
+    <label> Total Price</label>
+    <label th:text = "${price}"></label>
+
+
+    <div class="input-box">
+      <input type="submit"  id = "cumpara" value="Cumpara ">
+    </div>
+
+  </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en" xml:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">>
+<head>
+    <title>BileteOnline</title>
+    <link rel="stylesheet" href="../style3.css">
+</head>
+<body>
+
+<div class="main">
+    <div class="navbar">
+        <div class="icon">
+            <h1 class="logo">Bilete Online</h1>
+        </div>
+
+
+    </div>
+    <div class="content">
+        <h1>Bilete Online</h1>
+        <p class="par">Acest Site va ofera posibilitatea de
+            achizitionare a <br> unor bilete sau abonamente la anumite echipe de fotbal
+            sau <br> meciuri,la pretul cel mai bun </p>
+
+        <div class="form">
+            <form method="post" action="/process_login_client" th:object="${loginRequest}">
+            <h2>Login Here</h2>
+            <input type="email" name="email" placeholder="Enter Email Here">
+            <input type="password" name="password" placeholder="Enter Password Here">
+            <button class="btnn" value="login" name="action">Log in</button>
+
+            <p class="link">Don't have an account<br>
+                <a href="/register">Sign up </a> here</a></p>
+                <button class="btnn" id="guest" value="guest" name="action">Connect as Guest</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

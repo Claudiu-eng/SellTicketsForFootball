@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Delete Some Teams</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class ="container">
+
+    <div class = "row" >
+        <form th:object= "${name}">
+        <h1 th:text ="${name}"></h1>
+        </form>
+    </div>
+
+    <table class = "table table-striped table-bordered">
+        <thead class = "table-dark">
+        <tr>
+            <th> Team ID</th>
+            <th> Team Name</th>
+            <th> Championship ID</th>
+            <th> Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each = "champ: ${teams}">
+            <td th:text = "${champ.id}"></td>
+            <td th:text = "${champ.name}"></td>
+            <td th:text = "${champ.championshipID}"></td>
+
+            <td>
+                <a th:href = "@{/items/team/edit/{id}(id=${champ.id})}"
+                   class = "btn btn-primary">Update</a>
+                <p></p>
+                <a th:href = "@{/team/delete/{id}(id=${champ.id})}"
+                   class = "btn btn-danger">Delete</a>
+
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+
+
+</body>
+</html>

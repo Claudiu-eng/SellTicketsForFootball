@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error page</title>
+    <link rel = "stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="form">
+    <form th:object = "${message}">
+        <p th:text = "${message.attribute6}"></p>
+        <a href="/">Go to main page</a>
+        <a href="/register">Create an account?</a>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xml:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel = "stylesheet" href="style.css">
+</head>
+<body>
+<div class="form">
+    <form method="post" action="/process_register" th:object="${registerRequest}">
+        <h2>Register</h2>
+        <div class="input-box">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input type="email" name="email" placeholder="E-mail" required minlength="4" maxlength="40">
+        </div>
+        <div class="input-box">
+            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+            <input type="password" name="password" placeholder="Password"  required minlength="4" maxlength="30">
+        </div>
+        <div class="input-box">
+            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+            <input type="text" name="firstName" placeholder="First Name"  required minlength="4" maxlength="30">
+        </div>
+        <div class="input-box">
+            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+            <input type="text" name="lastName" placeholder="Last Name"  required minlength="4" maxlength="30">
+        </div>
+        <div class="input-box">
+            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+            <input type="text" name="address" placeholder="address"  required minlength="4" maxlength="70">
+        </div>
+        <div class="input-box">
+            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+            <input type="text" name="region" placeholder="region"  required minlength="2" maxlength="20">
+        </div>
+        <div class="input-box">
+            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+            <input type="text" name="numberOfTelephone" placeholder="numberOfTelephone"  required minlength="10" maxlength="10">
+        </div>
+        <div class="input-box">
+            <input type="submit" name="sign-in" value="Register ">
+        </div>
+        <a href="/">Go to main page</a>
+    </form>
+</div>
+
+</body>
+</html>

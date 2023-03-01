@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BileteOnline</title>
+    <link rel="stylesheet" href="style3.css">
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+
+        }
+        table.center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="main">
+    <div class="navbar">
+        <div class="icon">
+            <h1 class="logo">Bilete Online</h1>
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li><a href="/client_meciuri">Meciuri</a></li>
+                <li><a href="/client_abonament">Abonamente</a></li>
+                <li><a href="/client_campionate">Campionate</a></li>
+                <li><a href="/client_echipe">Echipe</a></li>
+                <li><a href="/">Log out</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <section>
+
+        <div class="container">
+
+            <table class = "center" id="customers">
+
+                <thead class = "table-dark">
+                <tr>
+                    <th> Home Team Name</th>
+                    <th> Away Team Name</th>
+                    <th> Stadium Name and address</th>
+                    <th> Date of match</th>
+                    <th> Cumperi?</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each = "champ: ${matches}">
+                    <td th:text = "${champ.attribute2}"></td>
+                    <td th:text = "${champ.attribute3}"></td>
+                    <td th:text = "${champ.attribute4}"></td>
+                    <td th:text = "${champ.attribute5}"></td>
+
+                    <td>
+                        <a th:href = "@{/client/cumpara/bilet/{id}(id=${champ.attribute1})}"
+                           class = "btn btn-primary" >Cumpara</a>
+
+                    </td>
+                </tr>
+                </tbody>
+
+
+            </table>
+
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>

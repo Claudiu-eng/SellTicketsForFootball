@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Add stadium</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div class = "container" >
+    <div class = "row" >
+        <div class ="col-lg-20 col-md-20 col-sm-20 container justify-content-center card">
+            <h1 class = "text-center"> Create New stadium </h1>
+            <div class = "card-body">
+                <form th:action="@{/create_new_stadium}" th:object = "${new_stadium}" method="POST">
+
+                    <div class ="form-group">
+                        <label> Stadium name </label>
+                        <div class="input-box">
+                            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                            <label>
+                                <input type="text" name="name" placeholder="Stadium name"  required minlength="4" maxlength="40">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Stadium address </label>
+                        <div class="input-box">
+                            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                            <input type="text" name="address" placeholder="Stadium address"  required minlength="4" maxlength="40">
+                        </div>
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Capacity </label>
+                        <div class="input-box">
+                            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                            <input type="text" name="capacity" placeholder="Capacity"  minlength="1" maxlength="6" pattern="^\d+$" title="Must contain only digits" required >
+                        </div>
+                    </div>
+
+
+                    <div class = "box-footer">
+                        <button type="submit" class = "btn btn-primary" id="submit">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

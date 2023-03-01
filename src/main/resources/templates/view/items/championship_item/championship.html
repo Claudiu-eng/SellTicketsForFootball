@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Championship</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class ="container">
+
+    <div class = "row">
+        <h1> List Championships </h1>
+    </div>
+
+    <div class = "row">
+        <div class = "col-lg-3">
+            <a th:href = "@{/items/add_championship}" class = "btn btn-primary btn-sm mb-3"> Add Championship</a>
+        </div>
+
+    </div>
+    <table class = "table table-striped table-bordered">
+        <thead class = "table-dark">
+        <tr>
+            <th> Championship ID</th>
+            <th> Championship Name</th>
+            <th> Number Of Teams</th>
+            <th> Maxim Number Of Teams</th>
+            <th> Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each = "champ: ${championships}">
+            <td th:text = "${champ.id}"></td>
+            <td th:text = "${champ.name}"></td>
+            <td th:text = "${champ.numberOfTeams}"></td>
+            <td th:text = "${champ.maximNumberOfTeams}"></td>
+            <td>
+                <a th:href = "@{/items/championship/edit/{id}(id=${champ.id})}"
+                   class = "btn btn-primary">Update</a>
+
+                <a th:href = "@{/champs/delete/{id}(id=${champ.id})}"
+                   class = "btn btn-danger">Delete</a>
+                <p></p>
+                <a th:href = "@{/champs/{id}/delete_team(id=${champ.id})}"
+                   class = "btn btn-warning">Delete some teams</a>
+
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+
+
+</body>
+</html>

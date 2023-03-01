@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xml:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <link rel = "stylesheet" href="../style.css">
+</head>
+<body>
+<div class="form">
+    <form method="post" action="/process_login_admin" th:object="${loginRequest}">
+        <h2>Log In as admin</h2>
+        <div class="input-box">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <label>
+                <input type="email" name="email" placeholder="E-mail" required minlength="4" maxlength="40">
+            </label>
+        </div>
+        <div class="input-box">
+            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+            <label>
+                <input type="password" name="password" placeholder="Password"  required minlength="4" maxlength="30">
+            </label>
+        </div>
+        <div class="input-box">
+            <input type="submit" name="sign-in" value="Login">
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>

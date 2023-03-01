@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Edit Match</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div class = "container" >
+    <div class = "row" >
+        <div class ="col-lg-10 col-md-10 col-sm-10 container justify-content-center card">
+            <h1 class = "text-center"> Edit Match </h1>
+            <div class = "card-body">
+                <form th:action="@{/edit_match}" th:object = "${edit_champ}" method="POST">
+
+                    <table class = "table table-striped table-bordered">
+                        <thead class = "table-dark">
+                        <tr>
+                            <th> Match ID</th>
+                            <th> Home Team Name</th>
+                            <th> Away Team Name</th>
+                            <th> Stadium Name and address</th>
+                            <th> Date of match</th>
+                        </tr>
+                        </thead>
+
+                            <td th:text = "${edit_champ.attribute1}"></td>
+                            <td th:text = "${edit_champ.attribute2}"></td>
+                            <td th:text = "${edit_champ.attribute3}"></td>
+                            <td th:text = "${edit_champ.attribute4}"></td>
+                            <td th:text = "${edit_champ.attribute5}"></td>
+
+
+                    <div class ="form-group">
+                        <label> Match date </label>
+                        <div class="input-box">
+                            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                            <input type="datetime-local" name="attribute5" placeholder="Match date"  required >
+                        </div>
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Stadium ID </label>
+                        <div class="input-box">
+                            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                            <input type="text" name="attribute4" placeholder="Stadium ID"  pattern="^\d+$" title="Must contain only digits" required >
+                        </div>
+                    </div>
+
+                        <div class ="form-group">
+                            <label> Price </label>
+                            <div class="input-box">
+                                <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                <input type="text" name="attribute3" placeholder="Price"  minlength="1" maxlength="6" pattern="^\d+$" title="Must contain only digits" required >
+                            </div>
+                        </div>
+
+                    </table>
+
+                    <div class = "box-footer">
+                        <button type="submit" class = "btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <form  th:object = "${stadiums}" >
+        <table class = "table table-striped table-bordered">
+            <thead class = "table-dark">
+            <tr>
+                <th> Stadium ID</th>
+                <th> Stadium Address</th>
+                <th> Stadium capacity</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each = "champ: ${stadiums}">
+                <td th:text = "${champ.id}"></td>
+                <td th:text = "${champ.address}"></td>
+                <td th:text = "${champ.capacity}"></td>
+
+            </tr>
+            </tbody>
+
+        </table>
+
+</div>
+</body>
+</html>

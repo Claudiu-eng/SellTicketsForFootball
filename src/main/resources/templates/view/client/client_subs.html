@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Abonamente</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class ="container">
+  <div class = "row" >
+    <div class ="col-lg-10 col-md-10 col-sm-10 container justify-content-center card">
+      <div class = "row">
+        <h1 class = "text-center"> List Subscriptions </h1>
+      </div>
+
+    </div>
+
+    <table class = "table table-striped table-bordered">
+      <thead class = "table-dark">
+      <tr>
+        <th> Team Name</th>
+        <th> Stadium Name</th>
+        <th> Price</th>
+        <th> date of start</th>
+        <th> date of end</th>
+        <th> Actions</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr th:each = "champ: ${subs}">
+        <td th:text = "${champ.attribute2}"></td>
+        <td th:text = "${champ.attribute3}"></td>
+        <td th:text = "${champ.attribute4}"></td>
+        <td th:text = "${champ.attribute5}"></td>
+        <td th:text = "${champ.attribute7}"></td>
+
+        <td>
+          <a th:href = "@{/client/subs/{id}(id=${champ.attribute1})}"
+             class = "btn btn-primary">Cumpara</a>
+
+        </td>
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
+</div>
+
+
+</body>
+</html>

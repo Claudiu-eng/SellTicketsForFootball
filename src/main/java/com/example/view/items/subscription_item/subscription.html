@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Subscriptions</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class ="container">
+
+    <div class = "row">
+        <h1> List Subscriptions </h1>
+    </div>
+
+    <div class = "row">
+        <div class = "col-lg-3">
+            <a th:href = "@{/items/add_subscription}" class = "btn btn-primary btn-sm mb-3"> Add Subscription</a>
+        </div>
+
+    </div>
+    <table class = "table table-striped table-bordered">
+        <thead class = "table-dark">
+        <tr>
+            <th> Subscription ID</th>
+            <th> Stadium ID</th>
+            <th> Team ID</th>
+            <th> Price</th>
+            <th> date_of_start</th>
+            <th> date_of_end</th>
+            <th> Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each = "champ: ${subs}">
+            <td th:text = "${champ.id}"></td>
+            <td th:text = "${champ.stadiumID}"></td>
+            <td th:text = "${champ.teamID}"></td>
+            <td th:text = "${champ.price}"></td>
+            <td th:text = "${champ.date_of_start}"></td>
+            <td th:text = "${champ.date_of_end}"></td>
+            <td>
+                <a th:href = "@{/items/subscription/edit/{id}(id=${champ.id})}"
+                   class = "btn btn-primary">Update</a>
+
+                <a th:href = "@{/subscription/delete/{id}(id=${champ.id})}"
+                   class = "btn btn-danger">Delete</a>
+                <p></p>
+
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+
+
+</body>
+</html>

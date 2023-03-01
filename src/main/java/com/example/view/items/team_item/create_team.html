@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Add team</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div class = "container" >
+    <div class = "row" >
+        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class = "text-center"> Create New Team </h1>
+            <div class = "card-body">
+                <form th:action="@{/create_new_team}" th:object = "${new_team}" method="POST">
+                    <div class ="form-group">
+                        <label> Team Name </label>
+                        <div class="input-box">
+                            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                            <input type="text" name="name" placeholder="Team name"  required minlength="4" maxlength="30">
+                        </div>
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Championship ID </label>
+                        <div class="input-box">
+                            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                            <input type="text" name="championshipID" placeholder=" which championship?"  minlength="1" maxlength="13" pattern="^\d+$" title="Must contain only digits" required >
+                        </div>
+                    </div>
+
+                    <div class = "box-footer">
+                        <button type="submit" class = "btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+    <form  th:object = "${championships}" >
+        <table class = "table table-striped table-bordered">
+            <thead class = "table-dark">
+            <tr>
+                <th> Championship ID</th>
+                <th> Championship Name</th>
+                <th> Number Of Teams</th>
+                <th> Maxim Number Of Teams</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each = "champ: ${championships}">
+                <td th:text = "${champ.id}"></td>
+                <td th:text = "${champ.name}"></td>
+                <td th:text = "${champ.numberOfTeams}"></td>
+                <td th:text = "${champ.maximNumberOfTeams}"></td>
+            </tr>
+            </tbody>
+
+        </table>
+
+
+    </form>
+
+</div>
+</body>
+</html>
